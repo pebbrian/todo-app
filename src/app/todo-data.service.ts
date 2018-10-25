@@ -4,6 +4,7 @@ import { Todo } from './todo';
 @Injectable({
   providedIn: 'root'
 })
+// Should communicate with a distant REST API later
 export class TodoDataService {
 
   lastId: number = 0; // incremented id
@@ -13,9 +14,9 @@ export class TodoDataService {
 
   // Create some example Todos
   createMockup() {
-     this.addTodo(new Todo({'title': 'Make coffee', 'complete': true}));
-      this.addTodo(new Todo({'title': 'Finish this app before tomorrow'}));
-      this.addTodo(new Todo({'title': 'Take some rest'}));
+    this.addTodo(new Todo({'title': 'Finish this app before tomorrow'}));
+    this.addTodo(new Todo({'title': 'Take some rest'}));
+    this.addTodo(new Todo({'title': 'Make coffee', 'complete': true}));
   }
 
   // Simulate POST /todos
@@ -61,6 +62,15 @@ export class TodoDataService {
     let updatedTodo = this.updateTodoById(todo.id, {
       complete: !todo.complete
     });
+    // Place a todo at the end of the list if completed
+    if( todo.complete ) {
+      for( var k = 0; k < this.todos.length; k++ ) {
+        if( todo.id == this.todos[k].id ) {
+          this.todos.splice(k, 1);
+          this.todos.push(todo);
+        }
+      }
+    }
     return updatedTodo;
   }
 }

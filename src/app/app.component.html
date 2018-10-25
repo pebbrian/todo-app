@@ -4,6 +4,9 @@
   <section *ngIf="todos.length > 0">
     <table>
       <tr *ngFor="let todo of todos" [class.completed]="todo.complete">
+          <td>
+            <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+          </td>
         <td [class.completed]="todo.complete">{{todo.title}}</td>
       </tr>
     </table>
