@@ -1,0 +1,48 @@
+.todoapp {
+    background-color: white;
+    margin: auto;
+    width: 400px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+header {
+     padding: 5px;
+     margin: 0;
+     background-color: rgb(243, 76, 94);
+     color: white; 
+     font-size: 1.5em;
+}
+
+nav {
+    background-color: rgb(255, 116, 124);
+    padding: 5px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: grey;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    height: 30px;
+}
+
+tr:hover {
+    background-color: lightpink;
+    cursor: pointer;
+}
+
+td {
+    padding-left: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+table:first-child td:first-child {
+    width: 20px;
+}

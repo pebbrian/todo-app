@@ -1,0 +1,14 @@
+<div class="todoapp">
+  <header>TODO LIST</header>
+  <nav></nav>
+  <section *ngIf="todos.length > 0">
+    <table>
+      <tr *ngFor="let todo of todos" [class.completed]="todo.complete">
+        <td [class.completed]="todo.complete">{{todo.title}}</td>
+      </tr>
+    </table>
+  </section>
+  <footer></footer>
+</div>
+
+<router-outlet></router-outlet>
